@@ -1,0 +1,60 @@
+/*
+ * CSS3 less is a function snippet library to simply add the different CSS3 styles for different browsers.
+ */
+.clearfix {
+	&:after {
+		visibility: hidden;
+		display: block;
+		content: "";
+		clear: both;
+		height: 0;
+	}
+}
+
+.rounded-corners (@radius: 5px) {
+  -webkit-border-radius: @radius;
+     -moz-border-radius: @radius;
+  		  border-radius: @radius;
+}
+
+.gradient-overlay( @begin-color, @end-color ) {
+	background: @begin-color; /* Old browsers */
+	background: -moz-linear-gradient(top, @begin-color 0%, @end-color 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@begin-color), color-stop(100%,@end-color)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, @begin-color 0%,@end-color 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, @begin-color 0%,@end-color 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, @begin-color 0%,@end-color 100%); /* IE10+ */
+	background: linear-gradient(top, @begin-color 0%,@end-color 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@begin-color', endColorstr='@end-color',GradientType=0 ); /* IE6-9 */
+}
+
+.gradient-overlay-dark( @begin-color, @percent : 15%){
+	.gradient-overlay( @begin-color, darken(@begin-color, @percent ) )
+}
+
+.box-shadow(@arguments) {
+	-webkit-box-shadow: (@arguments);
+	   -moz-box-shadow: (@arguments);
+			box-shadow: (@arguments);
+}
+
+.box-sizing(@arguments) {
+	-webkit-box-sizing: @arguments;
+	   -moz-box-sizing: @arguments;
+		box-sizing: @arguments;
+}
+
+.align-middle(){
+	/* Firefox */
+	display:-moz-box;
+	-moz-box-orient:horizontal;
+	-moz-box-align:center;
+	/* Safari and Chrome */
+	display:-webkit-box;
+	-webkit-box-orient:horizontal;
+	-webkit-box-align:center;
+	/* W3C */
+	display:box;
+	box-orient:horizontal;
+	box-align:center;
+}

@@ -1,0 +1,84 @@
+@import "css3.less";
+
+@column-number  : 12;
+@gutter-percent : 0.8%;
+@aurum-constant : 61.803402264934%;
+
+.col-container () {
+	&::before,
+	&::after {
+		display: table;
+		line-height: 0;
+		content: "";
+	}
+	&::after {
+		clear: both;
+	}
+}
+
+.column( @size : 1 ){
+	float: left;
+	width: 100%/@column-number*@size + @gutter-percent*@size/@column-number - @gutter-percent;
+	margin-right: @gutter-percent;
+	&:last-child{
+		margin-right: 0;
+	}
+}
+
+.metro-height( @proportion, @size : 1, @father : 100%){
+	vertical-align: middle;
+	height: @father/@column-number*@size + @gutter-percent*@size/@column-number - @gutter-percent * @proportion;
+	.align-middle();
+}
+
+/* aurum number sizes; */
+
+.big-aurum-proportion(){
+	float: left;
+	width: @aurum-constant;
+}
+
+.small-aurum-proportion(){
+	float: left;
+	width: 100% - @aurum-constant - 1;
+}
+
+/* bootstrap style for testing */
+
+.row{
+	.col-container();
+	margin: 1.5em 0;
+}
+
+.aurum_small{
+	.small-aurum-proportion();
+}
+
+.aurum_big{
+	.big-aurum-proportion();
+}
+
+.span6{
+	.column(6);
+	.metro-height(1, 2, 1000px);
+	background-color: #E00;
+	color: #FFF;
+}
+.span3{
+	.column(3);
+}
+
+.span1{
+	.column(1);
+}
+.span2{
+	.column(2);
+	.box-shadow( 0px 0px 2px 2px rgba(0, 0, 0, 0.1) );
+}
+.metronomo{ .gradient-overlay-dark(#0F0); }
+
+.metro{
+	text-align: left;
+	margin: 5%;
+	font-size: 2em;
+}
