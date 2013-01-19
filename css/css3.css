@@ -1,2 +1,10 @@
-/* This beautiful CSS-File has been crafted with LESS (lesscss.org) and compiled by simpLESS (wearekiss.com/simpless) */
-.clearfix:after{visibility:hidden;display:block;content:"";clear:both;height:0}
+/*
+ * CSS3 less is a function snippet library to simply add the different CSS3 styles for different browsers.
+ */
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  content: "";
+  clear: both;
+  height: 0;
+}

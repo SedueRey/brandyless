@@ -1,5 +1,3 @@
-@import "css3.less";
-
 @column-number  : 12;
 @gutter-percent : 0.8%;
 @aurum-constant : 61.803402264934%;
@@ -16,18 +14,18 @@
 	}
 }
 
-.column( @size : 1 ){
+.column( @size : 1, @number-column : @column-number, @gutter : @gutter-percent ){
 	float: left;
-	width: 100%/@column-number*@size + @gutter-percent*@size/@column-number - @gutter-percent;
+	width: 100%/@number-column*@size + @gutter*@size/@number-column - @gutter;
 	margin-right: @gutter-percent;
 	&:last-child{
 		margin-right: 0;
 	}
 }
 
-.metro-height( @proportion, @size : 1, @father : 100%){
+.metro-height( @proportion, @size : 1, @father : 100%, @number-column : @column-number, @gutter : @gutter-percent ){
 	vertical-align: middle;
-	height: @father/@column-number*@size + @gutter-percent*@size/@column-number - @gutter-percent * @proportion;
+	height: @father/@number-column*@size + @gutter*@size/@number-column - @gutter * @proportion;
 	.align-middle();
 }
 
